@@ -62,7 +62,7 @@ class User(db.Model):
         return False
 
 	def get_id(self):
-		return unicode(self.id)
+		return str(self.id)
 
     def __init__(self,email,senha):
             self.email = email
@@ -75,28 +75,22 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = Form()
-    print("1")
-    user = User.query.filter_by(email=form.email.data).first()
-    print("2")
-    print("4")
-    if user and user.senha == form.senha.data:
-        print("5")
+    if request.method == "POST":
+        email = (request.form.get("email"))
+        senha = (request.form.get("password"))
+        new_user = User(email=email,senha=senha)
+        print("3")
+    if new_user.senha == senha.data:
+        print("4")
         flash("Logged in")
-        print("6")
-        return redirect(url_for("index"))
-    else:
-        print("7")
+        return redirect(url_for("logged"))
+    else :
         flash("Invalid login")
-    print("5")
-    return render_template("login.html",form=form)
-    print("6")
-    return "OK"
+        print("5")
+    return render_template("login.html")
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
-
-    form = Form()
     if request.method == 'POST':
         email = (request.form.get("email"))
         senha = (request.form.get("password"))

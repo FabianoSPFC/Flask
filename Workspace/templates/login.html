@@ -80,8 +80,7 @@ h4 {
 <div class="container">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
-            <form action="" method="POST">
-            {{ form.csrf_token }}
+            <form action="/login" method="POST">
             <div class="form-login">
                 <h2><label><font color="black">Bem Vindo</font></label></h2>
               <h3><label><font color="black">Email</font></label></h3>
@@ -92,11 +91,11 @@ h4 {
                         </br>
             <div class="wrapper">
             <span class="group-btn">
-                <a href="http://127.0.0.1:5000/login" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+                <button type="submit" class="btn waves-effect waves-light col s12">Entrar</button>
             </span>
             </div>
             </div>
-
+          </form>
         </div>
     </div>
 </div>
