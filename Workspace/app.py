@@ -77,16 +77,14 @@ def index():
 def login():
     if request.method == "POST":
         email = (request.form.get("email"))
-        senha = (request.form.get("password"))
+        senha = (request.form.get("senha"))
         new_user = User(email=email,senha=senha)
-        print("3")
-    if new_user.senha == senha.data:
-        print("4")
-        flash("Logged in")
-        return redirect(url_for("logged"))
-    else :
-        flash("Invalid login")
-        print("5")
+        if new_user.senha == senha:
+            flash("Logged in")
+            return redirect(url_for("logged"))
+        else :
+            flash("Invalid login")
+            return redirect(url_for("index"))
     return render_template("login.html")
 
 @app.route("/signup", methods=['GET', 'POST'])
@@ -96,11 +94,23 @@ def signup():
         senha = (request.form.get("password"))
         new_user = User(email=email,senha=senha)
 
-
         db.session.add(new_user)
         db.session.commit()
         flash("User Successfully Registered")
     return render_template("signup.html")
+
+@app.route("/logged", methods=['GET', 'POST'])
+def logged():
+    if request.method == 'POST':
+        name = (request.form.get("name"))
+        description = (request.form.get("description"))
+        value = (request.form.get("value"))
+        new_product = products(name=name,description=description,value=value)
+
+        db.session.add(new_product)
+        db.session.commit()
+        flash("Item criado com sucesso")
+    return render_template("henzel.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
