@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sign Up</title>
+  <!-- CORE CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+<style type="text/css">
+html,
+body {
+    height: 100%;
+    background: url("https://www.pixelstalk.net/wp-content/uploads/2016/07/Computer-Science-HD-Backgrounds.jpg");
+    background-repeat: no-repeat;
+    margin-right: 0px;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+#fundo{
+  /*background: url("");*/
+}
+.margin {
+  margin: auto;
+}
+
+</style>
+
+</head>
+<a href="http://127.0.0.1:5000/"><button type="button" class="btn btn-default">Página Inicial</button></a>						</div>
+          <div class="module widget-handle mobile-toggle right visible-sm visible-xs">
+            <i class="fa fa-bars"></i>
+          </div>
+<body>
+
+  <div id="login-page" class="row">
+    <div class="col s12 z-depht-10 card-panel"></div>
+    <div class="col s10 z-depth-8 card-panel">
+
+        <div class="row">
+          <div class="input-field col s12 center">
+            <p class="center login-form-text">SignUp Form</p>
+          </div>
+        </div>
+        <form action="/signup" method="POST">
+
+        <!-- <div class="form-signup">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+            <input id="username" type="text" placeholder="Username">
+          </div>
+        </div> -->
+
+        <div class="form-control">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+
+            <input type="Email" name="email" placeholder="email@gmail.com">
+          </div>
+        </div>
+
+        <div class="form-control">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix"></i>
+            <input type="Password" name="password" placeholder="password" >
+          </div>
+        </div>
+
+          <div class="input-field col s12">
+            <button type="submit" class="btn waves-effect waves-light col s12">Register Now</button>
+          </div>
+          <div class="input-field col s12">
+            <p class="margin center medium-small sign-up">Already have an account? <a href="http://127.0.0.1:5000/login">Login</a></p><meta http-equiv="refresh"; url="http://127.0.0.1:5000/login">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col s10 "></div>
+</body>
+
+</html>
