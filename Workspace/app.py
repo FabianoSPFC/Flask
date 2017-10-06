@@ -78,8 +78,9 @@ def login():
     if request.method == "POST":
         email = (request.form.get("email"))
         senha = (request.form.get("senha"))
-        new_user = User(email=email,senha=senha)
-        if new_user.senha == senha:
+        new_user = User.query.filter_by(email='email', senha='senha')
+
+        if senha == senha:
             flash("Logged in")
             return redirect(url_for("logged"))
         else :
@@ -110,7 +111,7 @@ def logged():
         db.session.add(new_product)
         db.session.commit()
         flash("Item criado com sucesso")
-    return render_template("henzel.html")
+    return render_template("logged.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
