@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import Form
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_user, logout_user
 
 app = Flask(__name__)
 
@@ -78,12 +78,15 @@ def login():
     if request.method == "POST":
         email = (request.form.get("email"))
         senha = (request.form.get("senha"))
-        new_user = User.query.filter_by(email='email', senha='senha')
-
+        print("1")
         if senha == senha:
+            print("2")
             flash("Logged in")
+            print("5")
             return redirect(url_for("logged"))
+            print("3")
         else :
+            print("4")
             flash("Invalid login")
             return redirect(url_for("index"))
     return render_template("login.html")
@@ -112,6 +115,12 @@ def logged():
         db.session.commit()
         flash("Item criado com sucesso")
     return render_template("logged.html")
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    flash("Deslogado com sucesso")
+    return render_template("index.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
